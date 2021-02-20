@@ -1,0 +1,107 @@
+{
+  "*": {
+    "configuration": {
+      "config": {
+        "configName": "config",
+        "topScope": [
+          "const path = require('path');",
+          "const webpack = require('webpack');",
+          "\n"
+        ],
+        "webpackOptions": {
+          "mode": "'development'",
+          "entry": "'./client/src/index.ts'",
+          "output": {
+            "path": "path.resolve(__dirname, 'client/public/bundle.js')"
+          },
+          "plugins": [
+            "new webpack.ProgressPlugin()"
+          ],
+          "module": {
+            "rules": [
+              {
+                "test": "/\\.(ts|tsx)$/",
+                "loader": "'ts-loader'",
+                "include": [
+                  "path.resolve(__dirname, 'client/src')"
+                ],
+                "exclude": [
+                  "/node_modules/"
+                ]
+              },
+              {
+                "test": "/.css$/",
+                "use": [
+                  {
+                    "loader": "\"style-loader\""
+                  },
+                  {
+                    "loader": "\"css-loader\"",
+                    "options": {
+                      "sourceMap": true
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "resolve": {
+            "extensions": [
+              "'.tsx'",
+              "'.ts'",
+              "'.js'",
+              "'.jsx'"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "my-webpack-project": {
+    "configuration": {
+      "config": {
+        "configName": "config",
+        "topScope": [
+          "const path = require('path');",
+          "const webpack = require('webpack');",
+          "\n"
+        ],
+        "webpackOptions": {
+          "mode": "'development'",
+          "entry": "'./client/src/index.js'",
+          "output": {
+            "path": "path.resolve(__dirname, 'client/public')"
+          },
+          "plugins": [
+            "new webpack.ProgressPlugin()"
+          ],
+          "module": {
+            "rules": [
+              {
+                "test": "/\\.(js|jsx)$/",
+                "include": [
+                  "path.resolve(__dirname, 'client/src')"
+                ],
+                "loader": "'babel-loader'"
+              },
+              {
+                "test": "/.css$/",
+                "use": [
+                  {
+                    "loader": "\"style-loader\""
+                  },
+                  {
+                    "loader": "\"css-loader\"",
+                    "options": {
+                      "sourceMap": true
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
