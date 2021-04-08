@@ -1,11 +1,13 @@
 import React from 'react';
 import axios from 'axios';
 
+
 class App extends React.Component {
   constructor() {
     super();
 
     this.state = {
+
     }
 
   }
@@ -13,9 +15,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
-        <div>Hello World</div>
-      </>
+      <div className="img-container">
+        {/* <img className="car-img" src="/mazda3"></img> */}
+      </div>
     );
   }
 }
